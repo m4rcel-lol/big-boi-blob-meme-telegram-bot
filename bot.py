@@ -4,6 +4,7 @@ import random
 from datetime import time
 from pathlib import Path
 
+from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 
@@ -83,6 +84,7 @@ async def _send_daily_meme(context: ContextTypes.DEFAULT_TYPE) -> None:
 
 def main() -> None:
     """Start the Big Boi Blob bot."""
+    load_dotenv()
     token = os.environ.get("TELEGRAM_BOT_TOKEN")
     if not token:
         raise ValueError("TELEGRAM_BOT_TOKEN environment variable is not set.")
